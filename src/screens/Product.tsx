@@ -47,52 +47,6 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
   const cart = hooks.useAppSelector(state => state.cartSlice.list);
   const exist = (item: ProductType) => cart.find(i => i.id === item.id);
 
-  // ############ QUERIES ############ //
-
-  const {
-    data: colorsData,
-    error: colorsError,
-    isLoading: colorsLoading,
-  } = queryHooks.useGetColorsQuery();
-
-  const {
-    data: reviewsData,
-    error: reviewsError,
-    isLoading: reviewsLoading,
-    refetch: refetchReviews,
-  } = queryHooks.useGetReviewsQuery(item?.id || 0);
-
-  const {
-    data: ordersData,
-    error: ordersError,
-    isLoading: ordersLoading,
-  } = queryHooks.useGetOrdersQuery(user?.id || 0);
-
-  const ifInOrderExist = ordersData?.orders.find((order: any) =>
-    order.products.find((product: ProductType) => product.id === item.id),
-  );
-
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      refetchReviews();
-    });
-
-    return unsubscribe;
-  }, [navigation]);
-
-  // ############ STATUS ############ //
-
-  const isError = colorsError || reviewsError;
-  const isLoading = colorsLoading || reviewsLoading;
-
-  const [selectedColor, setSelectedColor] = useState<string>(item.color || '');
-
-  const colors = colorsData?.colors?.filter(color =>
-    item.colors?.includes(color.name),
-  );
-
-  const modifedItem = {...item, color: selectedColor};
-
   // ############ COMPONENTS ############ //
 
   const renderHeader = (): JSX.Element => {
@@ -206,106 +160,6 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
     return null;
   };
 
-  const renderNameWithRating = (): JSX.Element => {
-    return (
-      <View
-        style={{
-          paddingHorizontal: 20,
-          marginBottom: utils.rsHeight(30),
-          ...theme.flex.rowCenterSpaceBetween,
-        }}
-      >
-        <text.H3 numberOfLines={1}>{item.name}</text.H3>
-        <product.ProductRating rating={item.rating} />
-      </View>
-    );
-  };
-
-  const renderPriceWithQuantity = (): JSX.Element => {
-    return (
-      <View
-        style={{
-          marginLeft: 20,
-          paddingLeft: 20,
-          marginBottom: 30,
-          borderTopWidth: 1,
-          borderLeftWidth: 1,
-          borderBottomWidth: 1,
-          borderTopLeftRadius: 10,
-          borderBottomLeftRadius: 10,
-          borderColor: theme.colors.antiFlashWhite,
-          ...theme.flex.rowCenterSpaceBetween,
-        }}
-      >
-        <Text
-          style={{
-            ...theme.fonts.DM_Sans_700Bold,
-            fontSize: Platform.OS === 'ios' ? 20 : 18,
-            color: theme.colors.mainColor,
-          }}
-        >
-          ${item.price}
-        </Text>
-        <product.ProductCounterInner item={modifedItem} />
-      </View>
-    );
-  };
-
-  const renderColors = (): JSX.Element => {
-    return (
-      <View
-        style={{
-          paddingHorizontal: 20,
-          marginBottom: utils.responsiveHeight(30),
-        }}
-      >
-        <text.H5
-          style={{
-            color: theme.colors.mainColor,
-            marginRight: 32,
-            marginTop: 10,
-            marginBottom: utils.rsHeight(20),
-          }}
-        >
-          Color
-        </text.H5>
-        <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
-          {colors?.map((color, index) => {
-            const colorItem = colorsData?.colors.find(
-              item => item.name === color.name,
-            );
-            const code: string = colorItem ? colorItem.code : '';
-            return (
-              <TouchableOpacity
-                key={index}
-                style={{
-                  width: 30,
-                  height: 30,
-                  borderRadius: 15,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  backgroundColor: code,
-                  justifyContent: 'center',
-                }}
-                onPress={() => {
-                  if (!exist(item)) {
-                    setSelectedColor(color.name);
-                  }
-
-                  if (exist(item)) {
-                    alert.alreadyAdded();
-                  }
-                }}
-              >
-                {selectedColor === color.name && <svg.CheckSvg />}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </View>
-    );
-  };
-
   const renderDescription = (): JSX.Element => {
     return (
       <View
@@ -340,88 +194,17 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
     );
   };
 
-  const renderReviews = (): JSX.Element | null => {
-    if (!reviewsData?.reviews.length) return null;
-
-    const reversedReviews = [...reviewsData.reviews].reverse();
-    const slice = reversedReviews.slice(0, 2);
-
-    return (
-      <View style={{paddingLeft: 20}}>
-        <components.BlockHeading
-          title={`Reviews (${reviewsData?.reviews.length})`}
-          containerStyle={{marginRight: 20, marginBottom: responsiveHeight(20)}}
-          viewAllOnPress={() => {
-            navigation.navigate('Reviews', {reviews: reviewsData?.reviews});
-          }}
-          viewAllVisible={reversedReviews.length > 2}
-        />
-        {slice.map((item: any, index: number, array: any) => {
-          const isLast = index === array.length - 1;
-          return (
-            <items.ReviewItem
-              key={item.id.toString()}
-              item={item}
-              isLast={isLast}
-            />
-          );
-        })}
-      </View>
-    );
-  };
-
-  const renderButton = (): JSX.Element => {
-    return (
-      <View style={{padding: 20}}>
-        <components.Button
-          title='+ ADd to cart'
-          onPress={() => {
-            if (exist(item)) {
-              alert.alreadyAdded();
-            }
-            if (!exist(item)) {
-              dispatch(addToCart(modifedItem));
-            }
-          }}
-          containerStyle={{
-            paddingBottom: ifInOrderExist ? responsiveHeight(14) : 0,
-          }}
-        />
-        {ifInOrderExist && (
-          <components.Button
-            title='Leave a review'
-            touchableOpacityStyle={{backgroundColor: theme.colors.pastelMint}}
-            onPress={() => {
-              navigation.navigate('LeaveAReview', {productId: item.id});
-            }}
-            textStyle={{color: theme.colors.steelTeal}}
-          />
-        )}
-      </View>
-    );
-  };
-
   const renderContent = (): JSX.Element => {
-    if (isError) return <components.Error />;
-    if (isLoading) return <components.Loader />;
-
     return (
       <ScrollView
         contentContainerStyle={{flexGrow: 1}}
         showsVerticalScrollIndicator={false}
       >
         {renderCarousel()}
-        {renderNameWithRating()}
-        {renderPriceWithQuantity()}
-        {renderColors()}
         {renderDescription()}
-        {renderReviews()}
-        {renderButton()}
       </ScrollView>
     );
   };
-
-  // ############ RENDER ############ //
 
   return (
     <custom.SafeAreaView insets={['top', 'bottom']}>
