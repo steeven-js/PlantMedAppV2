@@ -34,6 +34,8 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
   const dispatch = hooks.useAppDispatch();
   const navigation = hooks.useAppNavigation();
 
+  const [tab, setTab] = useState(0);
+
   const viewabilityConfig = useRef({
     viewAreaCoveragePercentThreshold: 50,
   }).current;
@@ -161,38 +163,210 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
     return null;
   };
 
+  const renderTabs = (): JSX.Element => {
+    const tabs = ['Description', 'Propriétés', 'Usages', 'Précautions'];
+
+    return (
+      <View
+        style={{
+          ...theme.flex.rowCenterSpaceBetween,
+          marginHorizontal: 20,
+          marginBottom: utils.responsiveHeight(20),
+        }}
+      >
+        {tabs.map((item, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              style={{
+                paddingHorizontal: 10,
+                borderWidth: 1,
+                paddingVertical: 20,
+                borderRadius: 10,
+                borderColor:
+                  tab === index ? theme.colors.white : theme.colors.transparent,
+                backgroundColor:
+                  tab === index
+                    ? `${theme.colors.white}50`
+                    : theme.colors.transparent,
+              }}
+              onPress={() => setTab(index)}
+            >
+              <Text
+                style={{
+                  ...theme.fonts.DM_Sans_400Regular,
+                  fontSize: Platform.OS === 'ios' ? 9 : 8,
+                  textTransform: 'uppercase',
+                  color:
+                    tab === index
+                      ? theme.colors.mainColor
+                      : theme.colors.textColor,
+                }}
+                numberOfLines={1}
+              >
+                {item}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  };
+
   const renderDescription = (): JSX.Element => {
     return (
       <View
         style={{
           paddingHorizontal: 20,
-          marginBottom: 30,
+          marginBottom: utils.responsiveHeight(24),
         }}
       >
-        <text.H5 style={{marginBottom: 14, color: theme.colors.mainColor}}>
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
           Description
         </text.H5>
-        <text.T16
+        <View
           style={{
-            color: theme.colors.textColor,
-            marginBottom: utils.responsiveHeight(14),
-          }}
-          numberOfLines={6}
-        >
-          {item.description}
-        </text.T16>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Description', {
-              description: item.description,
-              title: item.name,
-            });
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
           }}
         >
-          <svg.ReadMoreSvg />
-        </TouchableOpacity>
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.description}
+          </text.T16>
+        </View>
       </View>
     );
+  };
+
+  const renderProperty = (): JSX.Element => {
+    return (
+      <View
+        style={{
+          paddingHorizontal: 20,
+          marginBottom: utils.responsiveHeight(24),
+        }}
+      >
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
+          Propriétés
+        </text.H5>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
+          }}
+        >
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.description}
+          </text.T16>
+        </View>
+      </View>
+    );
+  };
+
+  const renderUse = (): JSX.Element => {
+    return (
+      <View
+        style={{
+          paddingHorizontal: 20,
+          marginBottom: utils.responsiveHeight(24),
+        }}
+      >
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
+          Usages
+        </text.H5>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
+          }}
+        >
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.description}
+          </text.T16>
+        </View>
+      </View>
+    );
+  };
+
+  const renderCaution = (): JSX.Element => {
+    return (
+      <View
+        style={{
+          paddingHorizontal: 20,
+          marginBottom: utils.responsiveHeight(24),
+        }}
+      >
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
+          Précautions
+        </text.H5>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
+          }}
+        >
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.description}
+          </text.T16>
+        </View>
+      </View>
+    );
+  };
+
+  const renderTabContent = (): JSX.Element => {
+    if (tab === 0) {
+      return renderDescription();
+    } else if (tab === 1) {
+      return renderProperty();
+    } else if (tab === 2) {
+      return renderUse();
+    } else {
+      return renderCaution();
+    }
   };
 
   const renderContent = (): JSX.Element => {
@@ -202,7 +376,9 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
         showsVerticalScrollIndicator={false}
       >
         {renderCarousel()}
-        {renderDescription()}
+        {/* {renderDescription()} */}
+        {renderTabs()}
+        {renderTabContent()}
       </ScrollView>
     );
   };
