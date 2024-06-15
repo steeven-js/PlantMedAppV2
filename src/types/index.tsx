@@ -11,6 +11,8 @@ import type {ProductType} from './ProductType';
 import type {CategoryType} from './CategoryType';
 import type {CarouselType} from './CarouselType';
 import type {PromocodeType} from './PromocodeType';
+import type {PlantmedType} from './PlantmedType';
+import type {SymptomType} from './SymptomType';
 
 export type ViewableItemsChanged = {
   viewableItems: Array<ViewToken>;
@@ -33,7 +35,9 @@ export type {
   ReviewType,
   BannerType,
   ProductType,
+  SymptomType,
   CarouselType,
+  PlantmedType,
   CategoryType,
   PromocodeType,
 };

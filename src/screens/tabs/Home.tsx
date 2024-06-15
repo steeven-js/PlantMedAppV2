@@ -35,7 +35,7 @@ const Home: React.FC = () => {
     isLoading: plantsLoading,
     refetch: refetchPlants,
   } = queryHooks.useGetPlantmedQuery();
-
+  console.log('plantsData', plantsData);
   const {
     data: bannersData,
     error: bannersError,
@@ -69,10 +69,10 @@ const Home: React.FC = () => {
   }).current;
 
   let bestSellers =
-    plantsData?.plantmed.filter(item => item.isBestSeller === 1) || [];
+    plantsData?.plantmed.filter(item => item.isBestSeller == true) || [];
 
   let featured =
-    plantsData?.plantmed.filter(item => item.isFeatured === 1) || [];
+    plantsData?.plantmed.filter(item => item.isFeatured == true) || [];
 
   let carousel = carouselData?.carousel || [];
 

@@ -26,6 +26,7 @@ import {ProductType, ViewableItemsChanged} from '../types';
 
 const Product: React.FC<ProductScreenProps> = ({route}) => {
   const {item} = route.params;
+  console.log('item', item);
   const {responsiveHeight} = utils;
 
   const user = hooks.useAppSelector(state => state.userSlice.user);

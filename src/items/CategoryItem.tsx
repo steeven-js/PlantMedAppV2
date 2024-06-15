@@ -5,13 +5,13 @@ import {utils} from '../utils';
 import {hooks} from '../hooks';
 import {custom} from '../custom';
 import {theme} from '../constants';
-import {ProductType, CategoryType} from '../types';
+import {ProductType, CategoryType, PlantmedType} from '../types';
 
 type Props = {
   qty: number;
   isLast: boolean;
   item: CategoryType;
-  dataFilter: ProductType[] | undefined;
+  dataFilter: PlantmedType[] | undefined;
 };
 
 const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {

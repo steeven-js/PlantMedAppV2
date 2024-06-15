@@ -1,4 +1,4 @@
-import {ProductType} from '../types';
+import {PlantmedType, ProductType} from '../types';
 import {UserType} from './UserType';
 import {ReviewType} from './ReviewType';
 
@@ -18,9 +18,9 @@ export type RootStackParamList = {
   Onboarding: undefined;
   EditProfile: undefined;
   OrderFailed: undefined;
-  Plant: {plant: ProductType};
+  Plant: {plant: PlantmedType};
   OrderHistory: undefined;
-  Shop: {title: string; products: ProductType[]};
+  Shop: {title: string; products: PlantmedType[]};
   MyPromocodes: undefined;
   TabNavigator: undefined;
   LeaveAReview: {productId: number};
@@ -58,5 +58,5 @@ export type RootStackParamList = {
   DeleteAccount: undefined;
   VerifyEmailForgot: {email?: string};
   SendEmailOtpForgot: undefined;
-  Product: {item: ProductType};
+  Product: {item: PlantmedType};
 };

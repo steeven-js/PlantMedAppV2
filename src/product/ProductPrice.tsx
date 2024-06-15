@@ -2,9 +2,12 @@ import React, {PropsWithChildren} from 'react';
 import {View, Text, ViewStyle, Platform} from 'react-native';
 
 import {theme} from '../constants';
-import {ProductType} from '../types';
+import {PlantmedType} from '../types';
 
-type Props = PropsWithChildren<{item: ProductType; containerStyle?: ViewStyle}>;
+type Props = PropsWithChildren<{
+  item: PlantmedType;
+  containerStyle?: ViewStyle;
+}>;
 
 const ProductPrice: React.FC<Props> = ({item, containerStyle}): JSX.Element => {
   return (

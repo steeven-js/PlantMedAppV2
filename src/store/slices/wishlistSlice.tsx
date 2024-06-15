@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
 
-import type {ProductType} from '../../types';
+import {PlantmedType} from '../../types';
 
-type WishlistState = {list: ProductType[]};
+type WishlistState = {list: PlantmedType[]};
 
 const initialState: WishlistState = {
   list: [],
@@ -13,7 +13,7 @@ export const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
   reducers: {
-    addToWishlist: (state, action: PayloadAction<ProductType>) => {
+    addToWishlist: (state, action: PayloadAction<PlantmedType>) => {
       const inWishlist = state.list.find(item => item.id === action.payload.id);
 
       if (!inWishlist) {
@@ -22,7 +22,7 @@ export const wishlistSlice = createSlice({
         });
       }
     },
-    removeFromWishlist: (state, action: PayloadAction<ProductType>) => {
+    removeFromWishlist: (state, action: PayloadAction<PlantmedType>) => {
       const inWishlist = state.list.find(item => item.id === action.payload.id);
 
       if (inWishlist) {

@@ -36,9 +36,9 @@ const Header: React.FC<HeaderType> = ({
   const navigation = hooks.useAppNavigation();
 
   const user = useAppSelector(state => state.userSlice.user);
-  const cart = useAppSelector(state => state.cartSlice.list);
+  // const cart = useAppSelector(state => state.cartSlice.list);
 
-  const subtotal = useAppSelector(state => state.cartSlice.subtotal);
+  // const subtotal = useAppSelector(state => state.cartSlice.subtotal);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -46,14 +46,12 @@ const Header: React.FC<HeaderType> = ({
     data: plantsData,
     error: plantsError,
     isLoading: plantsLoading,
-  } = queryHooks.useGetPlantsQuery();
+  } = queryHooks.useGetPlantmedQuery();
 
-  const newQuantity = plantsData?.plants.filter(item => item.isNew).length;
-  const featuredQuantity = plantsData?.plants.filter(
+  const featuredQuantity = plantsData?.plantmed.filter(
     item => item.isFeatured,
   ).length;
-  const saleQuantity = plantsData?.plants.filter(item => item.oldPrice).length;
-  const bestQuantity = plantsData?.plants.filter(
+  const bestQuantity = plantsData?.plantmed.filter(
     item => item.isBestSeller,
   ).length;
 
@@ -211,7 +209,7 @@ const Header: React.FC<HeaderType> = ({
                 dispatch(actions.setScreen('Category'));
               }}
             />
-            <items.BurgerMenuItem
+            {/* <items.BurgerMenuItem
               qty={`${saleQuantity}`}
               title={'>  Sale'}
               onPress={() => {
@@ -222,8 +220,8 @@ const Header: React.FC<HeaderType> = ({
                     plantsData?.plants.filter(item => item.oldPrice) ?? [],
                 });
               }}
-            />
-            <items.BurgerMenuItem
+            /> */}
+            {/* <items.BurgerMenuItem
               qty={`${newQuantity}`}
               title='>  New arrivals'
               onPress={() => {
@@ -233,7 +231,7 @@ const Header: React.FC<HeaderType> = ({
                   products: plantsData?.plants.filter(item => item.isNew) ?? [],
                 });
               }}
-            />
+            /> */}
             <items.BurgerMenuItem
               qty={`${bestQuantity}`}
               title={'>  Best sellers'}
@@ -242,7 +240,8 @@ const Header: React.FC<HeaderType> = ({
                 navigation.navigate('Shop', {
                   title: 'Best sellers',
                   products:
-                    plantsData?.plants.filter(item => item.isBestSeller) ?? [],
+                    plantsData?.plantmed.filter(item => item.isBestSeller) ??
+                    [],
                 });
               }}
             />
@@ -254,7 +253,7 @@ const Header: React.FC<HeaderType> = ({
                 navigation.navigate('Shop', {
                   title: 'Featured products',
                   products:
-                    plantsData?.plants.filter(item => item.isFeatured) ?? [],
+                    plantsData?.plantmed.filter(item => item.isFeatured) ?? [],
                 });
               }}
             />
