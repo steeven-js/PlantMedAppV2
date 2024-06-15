@@ -61,21 +61,21 @@ const Header: React.FC<HeaderType> = ({
 
   const isLoading = plantsLoading;
 
-  const handleOnPress = () => {
-    if (cart.length > 0) {
-      dispatch(actions.setScreen('Order'));
-      route.name === 'Shop' && navigation.navigate('TabNavigator');
-      route.name === 'Product' && navigation.navigate('TabNavigator');
-    }
-    if (cart.length === 0) {
-      Alert.alert('Your cart is empty', 'Please add some items to your cart', [
-        {
-          text: 'OK',
-          onPress: () => console.log('OK Pressed'),
-        },
-      ]);
-    }
-  };
+  // const handleOnPress = () => {
+  //   if (cart.length > 0) {
+  //     dispatch(actions.setScreen('Order'));
+  //     route.name === 'Shop' && navigation.navigate('TabNavigator');
+  //     route.name === 'Product' && navigation.navigate('TabNavigator');
+  //   }
+  //   if (cart.length === 0) {
+  //     Alert.alert('Your cart is empty', 'Please add some items to your cart', [
+  //       {
+  //         text: 'OK',
+  //         onPress: () => console.log('OK Pressed'),
+  //       },
+  //     ]);
+  //   }
+  // };
 
   const renderGoBack = (): JSX.Element | null => {
     if (goBackIcon && navigation.canGoBack()) {
@@ -353,48 +353,48 @@ const Header: React.FC<HeaderType> = ({
     return null;
   };
 
-  const renderBasket = (): JSX.Element | null => {
-    if (basketIcon) {
-      return (
-        <TouchableOpacity
-          onPress={handleOnPress}
-          style={{
-            right: 0,
-            position: 'absolute',
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 20,
-          }}
-        >
-          <View
-            style={{
-              height: 22,
-              borderRadius: 11,
-              paddingHorizontal: 7,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: theme.colors.mainColor,
-            }}
-          >
-            <Text
-              style={{
-                color: theme.colors.white,
-                ...theme.fonts.DM_Sans_700Bold,
-                fontSize: Platform.OS === 'ios' ? 10 : 8,
-              }}
-              numberOfLines={1}
-            >
-              {cart.length > 0 ? `$${subtotal.toFixed(2)}` : '$0'}
-            </Text>
-          </View>
-          <svg.BasketSvg />
-        </TouchableOpacity>
-      );
-    }
+  // const renderBasket = (): JSX.Element | null => {
+  //   if (basketIcon) {
+  //     return (
+  //       <TouchableOpacity
+  //         onPress={handleOnPress}
+  //         style={{
+  //           right: 0,
+  //           position: 'absolute',
+  //           flexDirection: 'row',
+  //           alignItems: 'center',
+  //           paddingHorizontal: 20,
+  //         }}
+  //       >
+  //         <View
+  //           style={{
+  //             height: 22,
+  //             borderRadius: 11,
+  //             paddingHorizontal: 7,
+  //             flexDirection: 'row',
+  //             alignItems: 'center',
+  //             justifyContent: 'center',
+  //             backgroundColor: theme.colors.mainColor,
+  //           }}
+  //         >
+  //           <Text
+  //             style={{
+  //               color: theme.colors.white,
+  //               ...theme.fonts.DM_Sans_700Bold,
+  //               fontSize: Platform.OS === 'ios' ? 10 : 8,
+  //             }}
+  //             numberOfLines={1}
+  //           >
+  //             {cart.length > 0 ? `$${subtotal.toFixed(2)}` : '$0'}
+  //           </Text>
+  //         </View>
+  //         <svg.BasketSvg />
+  //       </TouchableOpacity>
+  //     );
+  //   }
 
-    return null;
-  };
+  //   return null;
+  // };
 
   const renderContent = (): JSX.Element => {
     const containerStyle: ViewStyle = {
@@ -417,7 +417,7 @@ const Header: React.FC<HeaderType> = ({
         {renderBurgerIcon()}
         {renderTitle()}
         {renderSearch()}
-        {renderBasket()}
+        {/* {renderBasket()} */}
         {renderBurgerMenu()}
       </View>
     );

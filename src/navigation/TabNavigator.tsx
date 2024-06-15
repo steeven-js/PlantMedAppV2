@@ -41,9 +41,9 @@ const TabNavigator: React.FC = () => {
       return 'My profile';
     }
 
-    if (currentTabScreen === 'Order') {
-      return 'Order';
-    }
+    // if (currentTabScreen === 'Order') {
+    //   return 'Order';
+    // }
 
     if (currentTabScreen === 'Wishlist') {
       return 'Wishlist';
@@ -78,9 +78,9 @@ const TabNavigator: React.FC = () => {
       <View style={{flex: 1}}>
         {currentTabScreen === tabs[0].name && <Home />}
         {currentTabScreen === tabs[1].name && <Categories />}
-        {currentTabScreen === tabs[2].name && <Order />}
-        {currentTabScreen === tabs[3].name && <Wishlist />}
-        {currentTabScreen === tabs[4].name && <Profile />}
+        {/* {currentTabScreen === tabs[2].name && <Order />} */}
+        {currentTabScreen === tabs[2].name && <Wishlist />}
+        {currentTabScreen === tabs[3].name && <Profile />}
       </View>
     );
   };
