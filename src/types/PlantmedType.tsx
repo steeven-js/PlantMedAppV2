@@ -14,6 +14,12 @@ export type PlantmedType = {
   colors: string[];
   color: string;
   description: string;
+  habitat: string;
+  propriete: string;
+  usageInterne: string;
+  usageExterne: string;
+  precaution: string;
+  sources: string[];
   symptoms: string;
   isBestseller: boolean;
   isFeatured: boolean;

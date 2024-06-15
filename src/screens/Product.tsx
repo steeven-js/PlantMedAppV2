@@ -245,6 +245,56 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
             {item.description}
           </text.T16>
         </View>
+
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
+          Habitat
+        </text.H5>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
+          }}
+        >
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.habitat}
+          </text.T16>
+        </View>
+
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
+          Sources
+        </text.H5>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
+          }}
+        >
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.sources.join(', ')}
+          </text.T16>
+        </View>
       </View>
     );
   };
@@ -278,7 +328,7 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
               color: theme.colors.textColor,
             }}
           >
-            {item.description}
+            {item.propriete}
           </text.T16>
         </View>
       </View>
@@ -300,7 +350,7 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
             marginBottom: utils.responsiveHeight(10),
           }}
         >
-          Usages
+          Usages internes
         </text.H5>
         <View
           style={{
@@ -314,7 +364,32 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
               color: theme.colors.textColor,
             }}
           >
-            {item.description}
+            {item.usageInterne}
+          </text.T16>
+        </View>
+
+        <text.H5
+          style={{
+            textTransform: 'capitalize',
+            color: theme.colors.mainColor,
+            marginBottom: utils.responsiveHeight(10),
+          }}
+        >
+          Usages externes
+        </text.H5>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: utils.responsiveHeight(6),
+          }}
+        >
+          <text.T16
+            style={{
+              color: theme.colors.textColor,
+            }}
+          >
+            {item.usageExterne}
           </text.T16>
         </View>
       </View>
@@ -350,7 +425,7 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
               color: theme.colors.textColor,
             }}
           >
-            {item.description}
+            {item.precaution}
           </text.T16>
         </View>
       </View>
