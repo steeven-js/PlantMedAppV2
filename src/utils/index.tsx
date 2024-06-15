@@ -1,4 +1,4 @@
-import {Alert} from 'react-native';
+import {Alert, Platform} from 'react-native';
 import {handleTextChange} from '../utils/handleTextChange';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {responsiveWidth as rw} from 'react-native-responsive-dimensions';
@@ -49,7 +49,9 @@ const statusBarHeight = () => {
 
 const homeIndicatorSettings = () => {
   if (homeIndicatorHeight() !== 0) {
-    return 10 + homeIndicatorHeight();
+    return Platform.OS === 'android'
+      ? 10 + homeIndicatorHeight()
+      : 5 + homeIndicatorHeight() / 2;
   }
   if (homeIndicatorHeight() === 0) {
     return 20 + homeIndicatorHeight();
