@@ -140,10 +140,13 @@ const Categories: React.FC = () => {
                   <Text
                     numberOfLines={1}
                     style={{
-                      fontSize: Platform.OS === 'ios' ? 14 : 12,
-                      color: theme.colors.mainColor,
+                      fontSize: Platform.OS === 'ios' ? 16 : 8,
                       textTransform: 'capitalize',
+                      backgroundColor: theme.colors.sombre,
+                      color: theme.colors.pastelMint,
                       ...theme.fonts.DM_Sans_400Regular,
+                      lineHeight: 20 * 1.5,
+                      padding: 2,
                     }}
                   >
                     {item.name}
