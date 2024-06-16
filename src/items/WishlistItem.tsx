@@ -6,9 +6,9 @@ import {utils} from '../utils';
 import {custom} from '../custom';
 import {theme} from '../constants';
 import {product} from '../product';
-import {ProductType} from '../types';
+import {PlantmedType} from '../types';
 
-type Props = {item: ProductType; containerStyle?: ViewStyle; isLast?: boolean};
+type Props = {item: PlantmedType; containerStyle?: ViewStyle; isLast?: boolean};
 
 const WishlistItem: React.FC<Props> = ({
   item,

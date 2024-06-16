@@ -26,7 +26,7 @@ import {ProductType, ViewableItemsChanged} from '../types';
 
 const Product: React.FC<ProductScreenProps> = ({route}) => {
   const {item} = route.params;
-  console.log('item', item);
+  // console.log('item', item);
   const {responsiveHeight} = utils;
 
   const user = hooks.useAppSelector(state => state.userSlice.user);
@@ -80,7 +80,8 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
               resizeMode='contain'
               source={{uri: item}}
               style={{
-                aspectRatio: 375 / 500,
+                // aspectRatio: 375 / 500,
+                aspectRatio: 700 / 500,
                 width: theme.sizes.deviceWidth,
                 backgroundColor: theme.colors.imageBackground,
               }}

@@ -12,7 +12,7 @@ import {hooks} from '../hooks';
 import {custom} from '../custom';
 import {svg} from '../assets/svg';
 import {theme} from '../constants';
-import {ProductType} from '../types';
+import {PlantmedType, ProductType} from '../types';
 import {components} from '../components';
 import {queryHooks} from '../store/slices/apiSlice';
 import {handleTextChange} from '../utils/handleTextChange';
@@ -34,7 +34,7 @@ const Search: React.FC = () => {
     data: plantsData,
     error: plantsError,
     isLoading: plantsLoading,
-  } = queryHooks.useGetPlantsQuery();
+  } = queryHooks.useGetPlantmedQuery();
 
   const ref = useRef<TextInput>(null);
 
@@ -102,7 +102,7 @@ const Search: React.FC = () => {
     );
   };
 
-  const renderItem = ({item, index}: {item: ProductType; index: number}) => {
+  const renderItem = ({item, index}: {item: PlantmedType; index: number}) => {
     return (
       <TouchableOpacity
         style={{
@@ -156,14 +156,14 @@ const Search: React.FC = () => {
   };
 
   const renderSearchResults = () => {
-    const filteredProducts = plantsData?.plants.filter(item => {
+    const filteredProducts = plantsData?.plantmed.filter(item => {
       return item.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
     return (
       <FlatList
         data={filteredProducts}
-        keyExtractor={(item: ProductType) => item.id.toString()}
+        keyExtractor={(item: PlantmedType) => item.id.toString()}
         contentContainerStyle={{flexGrow: 1}}
         keyboardShouldPersistTaps='handled' // when user taps on the screen, the keyboard will be hidden
         keyboardDismissMode='on-drag' // when user drags the screen, the keyboard will be hidden
