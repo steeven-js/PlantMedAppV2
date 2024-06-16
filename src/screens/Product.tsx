@@ -81,6 +81,7 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
               source={{uri: item}}
               style={{
                 // aspectRatio: 375 / 500,
+                // aspectRatio: 335 / 165,
                 aspectRatio: 700 / 500,
                 width: theme.sizes.deviceWidth,
                 backgroundColor: theme.colors.imageBackground,
