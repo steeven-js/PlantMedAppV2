@@ -5,7 +5,7 @@ import {utils} from '../utils';
 import {hooks} from '../hooks';
 import {custom} from '../custom';
 import {theme} from '../constants';
-import {ProductType, CategoryType, PlantmedType} from '../types';
+import {CategoryType, PlantmedType} from '../types';
 
 type Props = {
   qty: number;
@@ -32,8 +32,8 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
   return (
     <TouchableOpacity
       style={{
-        width: utils.responsiveWidth(90),
-        height: utils.responsiveWidth(90),
+        width: utils.responsiveWidth(150),
+        height: utils.responsiveWidth(150),
         marginRight: isLast ? 20 : 14,
       }}
       onPress={onPress}
@@ -58,8 +58,8 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
             backgroundColor: '#CFF5CE',
             alignSelf: 'flex-start',
             borderRadius: 50,
-            width: 16,
-            height: 14,
+            width: 40,
+            height: 40,
             justifyContent: 'center',
             alignItems: 'center',
             marginBottom: 'auto',
@@ -68,8 +68,8 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
           <Text
             numberOfLines={1}
             style={{
-              fontSize: 8,
-              color: '#50858B',
+              fontSize: 18,
+              color: theme.colors.steelTeal,
               ...theme.fonts.DM_Sans_400Regular,
             }}
           >
@@ -79,11 +79,13 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
         <Text
           numberOfLines={1}
           style={{
-            fontSize: Platform.OS === 'ios' ? 10 : 8,
+            fontSize: Platform.OS === 'ios' ? 16 : 8,
             textTransform: 'capitalize',
-            color: theme.colors.mainColor,
+            backgroundColor: theme.colors.sombre,
+            color: theme.colors.pastelMint,
             ...theme.fonts.DM_Sans_400Regular,
-            lineHeight: 10 * 1.5,
+            lineHeight: 20 * 1.5,
+            padding: 2,
           }}
         >
           {item.name}

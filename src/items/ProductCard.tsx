@@ -120,7 +120,7 @@ const PlantCard: React.FC<Props> = ({
             }}
           />
 
-          {quantity !== undefined && quantity === 0 && (
+          {/* {quantity !== undefined && quantity === 0 && (
             <product.ProductInCart
               item={item}
               containerStyle={{
@@ -141,7 +141,7 @@ const PlantCard: React.FC<Props> = ({
                 right: 0,
               }}
             />
-          )}
+          )} */}
         </custom.ImageBackground>
         <View style={{width: utils.rsHeight(138, true)}}>
           <product.ProductName item={item} style={{marginBottom: 3}} />
@@ -179,7 +179,7 @@ const PlantCard: React.FC<Props> = ({
               right: 0,
             }}
           />
-          <product.ProductInCart
+          {/* <product.ProductInCart
             item={item}
             containerStyle={{
               position: 'absolute',
@@ -198,7 +198,7 @@ const PlantCard: React.FC<Props> = ({
                 right: 0,
               }}
             />
-          )}
+          )} */}
         </custom.ImageBackground>
         <View style={{width: width}}>
           <product.ProductName item={item} style={{marginBottom: 3}} />

@@ -35,7 +35,7 @@ const Home: React.FC = () => {
     isLoading: plantsLoading,
     refetch: refetchPlants,
   } = queryHooks.useGetPlantmedQuery();
-  console.log('plantsData', plantsData);
+  // console.log('plantsData', plantsData);
   const {
     data: bannersData,
     error: bannersError,

@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -16,6 +16,18 @@ npm start
 
 # OR using Yarn
 yarn start
+```
+
+```bash
+cd ios/
+pod install --repo-update
+cd ..
+npx react-native run-ios --simulator="iPhone 15"
+
+cd ios/
+pod install --repo-update
+cd ..
+npx react-native run-ios --device
 ```
 
 ## Step 2: Start your Application
@@ -77,4 +89,5 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
 # PlantMedAppV2

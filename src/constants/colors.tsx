@@ -7,6 +7,7 @@ export const colors = {
   antiFlashWhite: '#E7EBEB',
   imageBackground: '#FAFAFA',
   transparent: 'transparent',
+  sombre: 'rgba(0, 0, 0, 0.5)',
 };
 
 export const theme = {colors};
