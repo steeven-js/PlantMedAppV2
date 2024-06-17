@@ -149,7 +149,8 @@ const Home: React.FC = () => {
           source={{uri: item.image}}
           style={{
             width: theme.sizes.deviceWidth,
-            aspectRatio: 375 / 500,
+            // aspectRatio: 375 / 500,
+            aspectRatio: 375 / 450,
             paddingHorizontal: 20,
             paddingTop: 40,
             paddingBottom: 20,

@@ -186,7 +186,9 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
                 paddingVertical: 20,
                 borderRadius: 10,
                 borderColor:
-                  tab === index ? theme.colors.white : theme.colors.transparent,
+                  tab === index
+                    ? theme.colors.steelTeal
+                    : theme.colors.transparent,
                 backgroundColor:
                   tab === index
                     ? `${theme.colors.white}50`
