@@ -14,15 +14,23 @@ import {actions} from '../store/actions';
 import {components} from '../components';
 import BottomTabBar from './BottomTabBar';
 import {queryHooks} from '../store/slices/apiSlice';
+import SignIn from '../screens/SignIn';
 
 const TabNavigator: React.FC = () => {
   const dispatch = hooks.useAppDispatch();
+  const navigation = hooks.useAppNavigation();
   const user = hooks.useAppSelector(state => state.userSlice.user);
   const currentTabScreen = hooks.useAppSelector(state => state.tabSlice.screen);
 
   const tabs = getTabs();
 
   console.log('user', JSON.stringify(user, null, 2));
+
+  useEffect(() => {
+    if (!user) {
+      navigation.navigate('SignIn');
+    }
+  }, [user, navigation]);
 
   const {
     data: userData,
@@ -80,7 +88,8 @@ const TabNavigator: React.FC = () => {
         {currentTabScreen === tabs[1].name && <Categories />}
         {/* {currentTabScreen === tabs[2].name && <Order />} */}
         {currentTabScreen === tabs[2].name && <Wishlist />}
-        {currentTabScreen === tabs[3].name && <Profile />}
+        {/* {currentTabScreen === tabs[3].name && <Profile />} */}
+        {currentTabScreen === tabs[3].name && (user ? <Profile /> : <SignIn />)}
       </View>
     );
   };

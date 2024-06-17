@@ -172,34 +172,51 @@ const Header: React.FC<HeaderType> = ({
               }}
               onPress={() => {
                 setShowModal(false);
-                navigation.navigate('EditProfile');
+                user
+                  ? navigation.navigate('EditProfile')
+                  : navigation.navigate('SignIn');
+                // navigation.navigate('EditProfile');
               }}
             >
               {/* <Gravatar email={user?.email || ''} size={40 * 2} /> */}
-              <View>
-                <Text
-                  style={{
-                    color: theme.colors.mainColor,
-                    ...theme.fonts.Inter_600SemiBold,
-                    fontSize: Platform.OS === 'ios' ? 14 : 12,
-                    textTransform: 'capitalize',
-                    marginBottom: 4,
-                  }}
-                  numberOfLines={1}
-                >
-                  {user?.name || ''}
-                </Text>
+              {user ? (
+                <>
+                  <View>
+                    <Text
+                      style={{
+                        color: theme.colors.mainColor,
+                        ...theme.fonts.Inter_600SemiBold,
+                        fontSize: Platform.OS === 'ios' ? 14 : 12,
+                        textTransform: 'capitalize',
+                        marginBottom: 4,
+                      }}
+                      numberOfLines={1}
+                    >
+                      {user?.name || ''}
+                    </Text>
+                    <Text
+                      style={{
+                        ...theme.fonts.DM_Sans_400Regular,
+                        color: theme.colors.textColor,
+                        fontSize: Platform.OS === 'ios' ? 14 : 12,
+                      }}
+                      numberOfLines={1}
+                    >
+                      {user?.email || ''}
+                    </Text>
+                  </View>
+                </>
+              ) : (
                 <Text
                   style={{
                     ...theme.fonts.DM_Sans_400Regular,
                     color: theme.colors.textColor,
                     fontSize: Platform.OS === 'ios' ? 14 : 12,
                   }}
-                  numberOfLines={1}
                 >
-                  {user?.email || ''}
+                  Sign In
                 </Text>
-              </View>
+              )}
             </TouchableOpacity>
             {/* MENU */}
             <items.BurgerMenuItem

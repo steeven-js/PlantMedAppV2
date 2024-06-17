@@ -44,6 +44,12 @@ const EditProfile: React.FC = () => {
   const phoneNumberInputRef = useRef<TextInput>(null);
 
   useEffect(() => {
+    if (!user) {
+      navigation.navigate('SignIn');
+    }
+  }, [user, navigation]);
+
+  useEffect(() => {
     if (loading) {
       nameInputRef.current?.blur();
       emailInputRef.current?.blur();

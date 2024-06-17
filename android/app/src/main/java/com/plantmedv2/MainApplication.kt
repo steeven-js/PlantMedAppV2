@@ -1,4 +1,4 @@
-package com.everbloom
+package com.plantmedv2
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.everbloom"
+    namespace "com.plantmedv2"
     defaultConfig {
-        applicationId "com.everbloom"
+        applicationId "com.plantmedv2"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "everbloom.app"
-               BlueprintName = "everbloom"
-               ReferencedContainer = "container:everbloom.xcodeproj">
+               BuildableName = "plantmedv2.app"
+               BlueprintName = "plantmedv2"
+               ReferencedContainer = "container:plantmedv2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "everbloomTests.xctest"
-               BlueprintName = "everbloomTests"
-               ReferencedContainer = "container:everbloom.xcodeproj">
+               BuildableName = "plantmedv2Tests.xctest"
+               BlueprintName = "plantmedv2Tests"
+               ReferencedContainer = "container:plantmedv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "everbloom.app"
-            BlueprintName = "everbloom"
-            ReferencedContainer = "container:everbloom.xcodeproj">
+            BuildableName = "plantmedv2.app"
+            BlueprintName = "plantmedv2"
+            ReferencedContainer = "container:plantmedv2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "everbloom.app"
-            BlueprintName = "everbloom"
-            ReferencedContainer = "container:everbloom.xcodeproj">
+            BuildableName = "plantmedv2.app"
+            BlueprintName = "plantmedv2"
+            ReferencedContainer = "container:plantmedv2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

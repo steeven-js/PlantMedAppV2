@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Alert, ScrollView} from 'react-native';
 
 import {hooks} from '../../hooks';
@@ -16,6 +16,12 @@ const Profile: React.FC = () => {
   const phoneVerified = user?.phoneVerified || false;
 
   console.log('user', JSON.stringify(user, null, 2));
+
+  useEffect(() => {
+    if (!user) {
+      navigation.navigate('SignIn');
+    }
+  }, [user, navigation]);
 
   const phoneVerifiedAlert = (): void => {
     Alert.alert(
@@ -183,7 +189,7 @@ const Profile: React.FC = () => {
         }}
         showsVerticalScrollIndicator={false}
       >
-        {renderUserInfo()}
+        {user && renderUserInfo()}
         {renderMenu()}
       </ScrollView>
     );
