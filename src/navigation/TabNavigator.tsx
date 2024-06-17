@@ -26,11 +26,11 @@ const TabNavigator: React.FC = () => {
 
   console.log('user', JSON.stringify(user, null, 2));
 
-  useEffect(() => {
-    if (!user) {
-      navigation.navigate('SignIn');
-    }
-  }, [user, navigation]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigation.navigate('SignIn');
+  //   }
+  // }, [user, navigation]);
 
   const {
     data: userData,

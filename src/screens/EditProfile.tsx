@@ -43,11 +43,11 @@ const EditProfile: React.FC = () => {
   const locationInputRef = useRef<TextInput>(null);
   const phoneNumberInputRef = useRef<TextInput>(null);
 
-  useEffect(() => {
-    if (!user) {
-      navigation.navigate('SignIn');
-    }
-  }, [user, navigation]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigation.navigate('SignIn');
+  //   }
+  // }, [user, navigation]);
 
   useEffect(() => {
     if (loading) {

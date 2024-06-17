@@ -54,6 +54,7 @@ const LogOut: React.FC = () => {
           touchableOpacityStyle={{backgroundColor: theme.colors.pastelMint}}
           onPress={() => {
             dispatch(actions.logOut());
+            navigation.navigate('TabNavigator');
           }}
           textStyle={{color: theme.colors.steelTeal}}
         />
