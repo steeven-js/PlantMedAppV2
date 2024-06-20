@@ -104,6 +104,11 @@ const StackNavigator: React.FC = () => {
           options={{headerShown: false}}
         />
         <RootStack.Screen
+          name='PrivacyPolicy'
+          component={screens.PrivacyPolicy}
+          options={{headerShown: false}}
+        />
+        <RootStack.Screen
           name='MyPromocodes'
           component={screens.MyPromocodes}
           options={{headerShown: false}}

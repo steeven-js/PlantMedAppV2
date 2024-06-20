@@ -16,6 +16,7 @@ import NewPassword from './NewPassword';
 import MyPromocodes from './MyPromocodes';
 import LeaveAReview from './LeaveAReview';
 import OrderHistory from './OrderHistory';
+import PrivacyPolicy from './PrivacyPolicy';
 import DeleteAccount from './DeleteAccount';
 import OrderSuccessful from './OrderSuccessful';
 import VerifyEmail from './verification/VerifyEmail';
@@ -58,6 +59,7 @@ export const screens = {
   DeleteAccount,
   PhoneVerified,
   EmailVerified,
+  PrivacyPolicy,
   OrderSuccessful,
   VerifyEmailForgot,
   SendEmailOtpForgot,

@@ -96,6 +96,15 @@ const Profile: React.FC = () => {
           containerStyle={{marginBottom: utils.responsiveHeight(10)}}
         />
         <items.ProfileItem
+          title='Privacy Policy'
+          onPress={() => {
+            navigation.navigate('PrivacyPolicy');
+          }}
+          icon={<svg.FileTextSvg />}
+          goNavigation={true}
+          containerStyle={{marginBottom: utils.responsiveHeight(6)}}
+        />
+        <items.ProfileItem
           title={'My orders'}
           onPress={() => {
             if (phoneVerified && emailVerified) {

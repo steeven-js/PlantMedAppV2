@@ -6,6 +6,7 @@ import {theme} from '../constants';
 
 type SafeAreaViewProps = {
   style?: ViewStyle;
+  containerStyle?: ViewStyle;
   statusBarColor?: string;
   children: React.ReactNode;
   insets?: ('top' | 'bottom' | 'left' | 'right')[];

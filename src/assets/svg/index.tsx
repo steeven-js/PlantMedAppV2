@@ -37,6 +37,7 @@ import NtfcBellSvg from './NtfcBellSvg';
 import FacebookSvg from './FacebookSvg';
 import CalendarSvg from './CalendarSvg';
 import ConfirmedSvg from './ConfirmedSvg';
+import FileTextSvg from './FileTextSvg';
 import SortingBySvg from './SortingBySvg';
 import ArrowOpenSvg from './ArrowOpenSvg';
 import NtfcCHeckSvg from './NtfcCHeckSvg';
@@ -98,6 +99,7 @@ export const svg = {
   ViewAllSvg,
   FiltersSvg,
   TwitterSvg,
+  FileTextSvg,
   DownloadSvg,
   ReadMoreSvg,
   NtfcBellSvg,
