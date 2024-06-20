@@ -69,6 +69,11 @@ const StackNavigator: React.FC = () => {
           options={{headerShown: false}}
         />
         <RootStack.Screen
+          name='Source'
+          component={screens.Source}
+          options={{headerShown: false}}
+        />
+        <RootStack.Screen
           name='OrderSuccessful'
           component={screens.OrderSuccessful}
           options={{headerShown: false}}

@@ -275,30 +275,24 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
           </text.T16>
         </View>
 
-        <text.H5
-          style={{
-            textTransform: 'capitalize',
-            color: theme.colors.mainColor,
-            marginBottom: utils.responsiveHeight(10),
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Source', {
+              source: item.sources,
+              title: item.name,
+            });
           }}
         >
-          Sources
-        </text.H5>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginBottom: utils.responsiveHeight(6),
-          }}
-        >
-          <text.T16
+          <text.H5
             style={{
-              color: theme.colors.textColor,
+              textTransform: 'capitalize',
+              color: theme.colors.mainColor,
+              marginBottom: utils.responsiveHeight(10),
             }}
           >
-            {item.sources.join(', ')}
-          </text.T16>
-        </View>
+            {'Sources >'}
+          </text.H5>
+        </TouchableOpacity>
       </View>
     );
   };

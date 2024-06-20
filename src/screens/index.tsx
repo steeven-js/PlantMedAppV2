@@ -4,6 +4,7 @@ import SignUp from './SignUp';
 import LogOut from './LogOut';
 import Search from './Search';
 import Filter from './Filter';
+import Source from './Source';
 import Reviews from './Reviews';
 import Product from './Product';
 import Checkout from './Checkout';
@@ -39,6 +40,7 @@ export const screens = {
   LogOut,
   Search,
   Filter,
+  Source,
   Reviews,
   Product,
   Checkout,

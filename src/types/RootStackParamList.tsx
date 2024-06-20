@@ -33,6 +33,7 @@ export type RootStackParamList = {
   Reviews: {reviews: ReviewType[]};
   MyPromocodesEmpty: undefined;
   ModalScreen: undefined;
+  Source: {source: string[]; title: string};
   Description: {description: string; title: string};
   CheckoutPaymentMethod: undefined;
   CheckoutShippingDetails: undefined;

@@ -56,4 +56,9 @@ export type DescriptionScreenProps = NativeStackScreenProps<
   'Description'
 >;
 
+export type SourceScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Source'
+>;
+
 export type WebScreenProps = NativeStackScreenProps<RootStackParamList, 'Web'>;

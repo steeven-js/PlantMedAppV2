@@ -4,7 +4,7 @@ import {TouchableOpacity, Alert} from 'react-native';
 import {hooks} from '../hooks';
 import {svg} from '../assets/svg';
 import {theme} from '../constants';
-import {PlantmedType, ProductType} from '../types';
+import {PlantmedType} from '../types';
 import {actions} from '../store/actions';
 
 type Props = {
