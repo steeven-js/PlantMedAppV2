@@ -198,8 +198,8 @@ const Product: React.FC<ProductScreenProps> = ({route}) => {
             >
               <Text
                 style={{
-                  ...theme.fonts.DM_Sans_400Regular,
-                  fontSize: Platform.OS === 'ios' ? 9 : 8,
+                  ...theme.fonts.DM_Sans_500Medium,
+                  fontSize: Platform.OS === 'ios' ? 11 : 10,
                   textTransform: 'uppercase',
                   color:
                     tab === index
