@@ -26,22 +26,22 @@ const EditProfile: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [name, setName] = useState<string>(user?.name || '');
   const [email, setEmail] = useState<string>(user?.email || '');
-  const [phoneNumber, setPhoneNumber] = useState<string>(
-    user?.phoneNumber || '',
-  );
+  // const [phoneNumber, setPhoneNumber] = useState<string>(
+  //   user?.phoneNumber || '',
+  // );
   const [location, setLocation] = useState<string>(user?.location || '');
 
   const handleNameChange = handleTextChange(setName);
   const handleEmailChange = handleTextChange(setEmail);
   const handleLocationChange = handleTextChange(setLocation);
-  const handlePhoneNumberChange = handleTextChange(setPhoneNumber);
+  // const handlePhoneNumberChange = handleTextChange(setPhoneNumber);
 
   const updatedUser = {name, location};
 
   const nameInputRef = useRef<TextInput>(null);
   const emailInputRef = useRef<TextInput>(null);
   const locationInputRef = useRef<TextInput>(null);
-  const phoneNumberInputRef = useRef<TextInput>(null);
+  // const phoneNumberInputRef = useRef<TextInput>(null);
 
   // useEffect(() => {
   //   if (!user) {
@@ -54,7 +54,7 @@ const EditProfile: React.FC = () => {
       nameInputRef.current?.blur();
       emailInputRef.current?.blur();
       locationInputRef.current?.blur();
-      phoneNumberInputRef.current?.blur();
+      // phoneNumberInputRef.current?.blur();
     }
   }, [loading]);
 
@@ -117,7 +117,7 @@ const EditProfile: React.FC = () => {
           editable={user?.email ? false : true}
           containerStyle={{marginBottom: utils.responsiveHeight(20)}}
         />
-        <custom.InputField
+        {/* <custom.InputField
           value={phoneNumber}
           label='Phone number'
           keyboardType='phone-pad'
@@ -126,7 +126,7 @@ const EditProfile: React.FC = () => {
           editable={user?.phoneNumber ? false : true}
           onChangeText={handlePhoneNumberChange}
           containerStyle={{marginBottom: utils.responsiveHeight(20)}}
-        />
+        /> */}
         <custom.InputField
           label='Location'
           value={location}

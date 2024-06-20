@@ -59,24 +59,7 @@ const Profile: React.FC = () => {
     return (
       <components.UserData
         onPress={() => {
-          if (user?.emailVerified && user?.phoneVerified) {
-            navigation.navigate('EditProfile');
-            return;
-          }
-
-          Alert.alert(
-            'Please verify your email and phone number',
-            'You need to verify your email and phone number to edit your profile.',
-            [
-              {
-                text: 'OK',
-                onPress: () => {
-                  console.log('OK Pressed');
-                },
-              },
-            ],
-            {cancelable: false},
-          );
+          navigation.navigate('EditProfile');
         }}
         containerStyle={{marginBottom: utils.responsiveHeight(30)}}
       />
@@ -104,7 +87,7 @@ const Profile: React.FC = () => {
           goNavigation={true}
           containerStyle={{marginBottom: utils.responsiveHeight(6)}}
         />
-        <items.ProfileItem
+        {/* <items.ProfileItem
           title={'My orders'}
           onPress={() => {
             if (phoneVerified && emailVerified) {
@@ -142,8 +125,8 @@ const Profile: React.FC = () => {
           }}
           icon={<svg.GiftSvg />}
           goNavigation={true}
-        />
-        <items.ProfileItem
+        /> */}
+        {/* <items.ProfileItem
           title={
             phoneVerified
               ? 'Your phone number is verified'
@@ -168,7 +151,7 @@ const Profile: React.FC = () => {
           goNavigation={!emailVerified}
           icon={<svg.MailSvg emailVerified={emailVerified} />}
           containerStyle={{marginBottom: utils.responsiveHeight(10)}}
-        />
+        /> */}
         <items.ProfileItem
           title='Sign out'
           onPress={() => {
