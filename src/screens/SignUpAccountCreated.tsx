@@ -38,6 +38,11 @@ const SignUpAccountCreated: React.FC<SignUpAccountCreatedScreenProps> = ({
         return;
       }
 
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Search'}],
+      });
+
       alert.somethingWentWrong();
     } catch (error: any) {
       navigation.reset({
@@ -88,7 +93,7 @@ const SignUpAccountCreated: React.FC<SignUpAccountCreatedScreenProps> = ({
     return (
       <components.Button
         loading={loading}
-        title='shop now'
+        title='Découvrir PlantMed'
         containerStyle={{margin: 20}}
         onPress={() => {
           handleSignIn();
