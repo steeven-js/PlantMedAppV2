@@ -79,13 +79,9 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
         <Text
           numberOfLines={1}
           style={{
-            fontSize: Platform.OS === 'ios' ? 16 : 8,
-            textTransform: 'capitalize',
-            backgroundColor: theme.colors.sombre,
-            color: theme.colors.pastelMint,
-            ...theme.fonts.DM_Sans_400Regular,
-            lineHeight: 20 * 1.5,
-            padding: 2,
+            fontSize: 16,
+            color: '#50858B',
+            ...theme.fonts.DM_Sans_700Bold,
           }}
         >
           {item.name}
