@@ -70,7 +70,7 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
             style={{
               fontSize: 18,
               color: theme.colors.steelTeal,
-              ...theme.fonts.DM_Sans_400Regular,
+              ...theme.fonts.DM_Sans_500Medium,
             }}
           >
             {qty}
@@ -81,7 +81,7 @@ const CategoryItem: React.FC<Props> = ({item, isLast, qty, dataFilter}) => {
           style={{
             fontSize: 16,
             color: '#50858B',
-            ...theme.fonts.DM_Sans_700Bold,
+            ...theme.fonts.DM_Sans_500Medium,
           }}
         >
           {item.name}

@@ -19,6 +19,12 @@ yarn start
 ```
 
 ```bash
+emulator -avd Pixel_7_Pro_API_33 -dns-server 8.8.8.8,8.8.4.4
+
+npx react-native run-android
+```
+
+```bash
 cd ios/
 pod install --repo-update
 cd ..

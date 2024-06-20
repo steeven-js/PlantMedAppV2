@@ -128,10 +128,10 @@ const Categories: React.FC = () => {
                     <Text
                       numberOfLines={1}
                       style={{
-                        fontSize: Platform.OS === 'ios' ? 14 : 12,
+                        fontSize: Platform.OS === 'ios' ? 18 : 16,
                         color: '#50858B',
                         textTransform: 'capitalize',
-                        ...theme.fonts.DM_Sans_400Regular,
+                        ...theme.fonts.DM_Sans_500Medium,
                       }}
                     >
                       {qty}
@@ -140,13 +140,10 @@ const Categories: React.FC = () => {
                   <Text
                     numberOfLines={1}
                     style={{
-                      fontSize: Platform.OS === 'ios' ? 16 : 8,
+                      fontSize: Platform.OS === 'ios' ? 18 : 16,
+                      color: theme.colors.mainColor,
                       textTransform: 'capitalize',
-                      backgroundColor: theme.colors.sombre,
-                      color: theme.colors.pastelMint,
-                      ...theme.fonts.DM_Sans_400Regular,
-                      lineHeight: 20 * 1.5,
-                      padding: 2,
+                      ...theme.fonts.DM_Sans_500Medium,
                     }}
                   >
                     {item.name}
