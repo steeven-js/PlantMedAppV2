@@ -116,7 +116,6 @@ const Home: React.FC = () => {
 
   const renderCarouselItem = ({item}) => {
     const products = plantsData?.plantmed.filter(plant => {
-      // console.log('item', item);
       return plant.promotion === item.promotion;
     });
 
