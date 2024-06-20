@@ -279,7 +279,7 @@ const Header: React.FC<HeaderType> = ({
               onPress={() => {
                 Alert.alert(
                   'Contact us',
-                  'Please contact us via email at support@everbloom.com',
+                  'Please contact us via email at contact@jsprod.fr',
                   [
                     {
                       text: 'OK',
