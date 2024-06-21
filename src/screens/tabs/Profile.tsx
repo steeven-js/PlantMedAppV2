@@ -12,48 +12,42 @@ const Profile: React.FC = () => {
 
   const user = hooks.useAppSelector(state => state.userSlice.user);
 
-  const emailVerified = user?.emailVerified || false;
-  const phoneVerified = user?.phoneVerified || false;
+  // const emailVerified = user?.emailVerified || false;
+  // const phoneVerified = user?.phoneVerified || false;
 
   console.log('user', JSON.stringify(user, null, 2));
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     navigation.navigate('SignIn');
-  //   }
-  // }, [user, navigation]);
+  // const phoneVerifiedAlert = (): void => {
+  //   Alert.alert(
+  //     'Phone number is verified',
+  //     'Your phone number is already verified.',
+  //     [
+  //       {
+  //         text: 'OK',
+  //         onPress: () => {
+  //           console.log('OK Pressed');
+  //         },
+  //       },
+  //     ],
+  //     {cancelable: false},
+  //   );
+  // };
 
-  const phoneVerifiedAlert = (): void => {
-    Alert.alert(
-      'Phone number is verified',
-      'Your phone number is already verified.',
-      [
-        {
-          text: 'OK',
-          onPress: () => {
-            console.log('OK Pressed');
-          },
-        },
-      ],
-      {cancelable: false},
-    );
-  };
-
-  const emailVerifiedAlert = (): void => {
-    Alert.alert(
-      'Email is verified',
-      'Your email is already verified.',
-      [
-        {
-          text: 'OK',
-          onPress: () => {
-            console.log('OK Pressed');
-          },
-        },
-      ],
-      {cancelable: false},
-    );
-  };
+  // const emailVerifiedAlert = (): void => {
+  //   Alert.alert(
+  //     'Email is verified',
+  //     'Your email is already verified.',
+  //     [
+  //       {
+  //         text: 'OK',
+  //         onPress: () => {
+  //           console.log('OK Pressed');
+  //         },
+  //       },
+  //     ],
+  //     {cancelable: false},
+  //   );
+  // };
 
   const renderUserInfo = (): JSX.Element => {
     return (
@@ -87,71 +81,15 @@ const Profile: React.FC = () => {
           goNavigation={true}
           containerStyle={{marginBottom: utils.responsiveHeight(6)}}
         />
-        {/* <items.ProfileItem
-          title={'My orders'}
-          onPress={() => {
-            if (phoneVerified && emailVerified) {
-              navigation.navigate('OrderHistory');
-              return;
-            }
-
-            Alert.alert(
-              'Please verify your email and phone number',
-              'You need to verify your email and phone number to see your orders.',
-              [
-                {
-                  text: 'OK',
-                  onPress: () => {
-                    console.log('OK Pressed');
-                  },
-                },
-              ],
-              {cancelable: false},
-            );
-          }}
-          containerStyle={{
-            marginBottom: utils.responsiveHeight(10),
-          }}
-          goNavigation={true}
-          icon={<svg.ServerSvg />}
-        />
         <items.ProfileItem
-          title={'Promocodes & gift cards'}
+          title='Prenium'
           onPress={() => {
-            navigation.navigate('MyPromocodes');
+            console.log('Prenium');
           }}
-          containerStyle={{
-            marginBottom: utils.responsiveHeight(10),
-          }}
-          icon={<svg.GiftSvg />}
+          icon={<svg.FileTextSvg />}
           goNavigation={true}
-        /> */}
-        {/* <items.ProfileItem
-          title={
-            phoneVerified
-              ? 'Your phone number is verified'
-              : 'Verify phone number'
-          }
-          onPress={() => {
-            phoneVerified
-              ? phoneVerifiedAlert()
-              : navigation.navigate('SendPhoneOtp');
-          }}
-          goNavigation={!phoneVerified}
-          icon={<svg.SmartphoneSvg phoneVerified={phoneVerified} />}
-          containerStyle={{marginBottom: utils.responsiveHeight(10)}}
+          containerStyle={{marginBottom: utils.responsiveHeight(6)}}
         />
-        <items.ProfileItem
-          title={emailVerified ? 'Your email is verified' : 'Verify email'}
-          onPress={() => {
-            emailVerified
-              ? emailVerifiedAlert()
-              : navigation.navigate('SendEmailOtp');
-          }}
-          goNavigation={!emailVerified}
-          icon={<svg.MailSvg emailVerified={emailVerified} />}
-          containerStyle={{marginBottom: utils.responsiveHeight(10)}}
-        /> */}
         <items.ProfileItem
           title='Sign out'
           onPress={() => {
